@@ -13,6 +13,9 @@ Route::get('/', function () {
 
 
 // Admin
+Route::get('/admin', function () {
+    return view('admin.index');
+})->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

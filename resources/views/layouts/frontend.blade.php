@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>ThinkFly - Immigration and Visa Consulting HTML5 Template</title>
     <meta name="description" content="">
-    <meta name="author" content="soukhinkhan">
+    <meta name="author" content="rshowrabh">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/logo/favicon.png">
