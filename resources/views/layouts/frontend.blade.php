@@ -51,6 +51,8 @@
 <script src="assets/js/plugins/isotope-docs.min.js"></script>
 <script src="assets/js/vendor/ajax-form.js"></script>
 <script src="assets/js/main.js"></script>
+@stack('head')
+
 </body>
 
 </html>
