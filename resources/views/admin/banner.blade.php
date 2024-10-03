@@ -56,7 +56,7 @@
                         <div class="form-group">
                             <label class="col-form-label">Upload Image (408*812, png)</label>
                             <div class="col">
-                                <img id="preview" src="{{ URL::to('./assets/imgs/banner-1/banner-man-img.png') }}"
+                                <img id="preview" src="{{ URL::to('assets/imgs/banner-1/banner-man-img.png') }}"
                                 alt="your name" class="mt-3 img-fluid" />
                                 <input type="file" class="form-control" name="image"
                                     @error('image') is-invalid @enderror id="selectImage">

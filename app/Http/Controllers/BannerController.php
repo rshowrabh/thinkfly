@@ -57,7 +57,7 @@ class BannerController extends Controller
     {
     if ($request->file('image')) {
         $imageName = 'banner-man-img.png';
-        $request->image->move(public_path('/assets/imgs/banner-1/'), $imageName);
+        $request->image->move(public_path('assets/imgs/banner-1/'), $imageName);
          }
         $data=Banner::findOrFail(1);
         $data->update([
