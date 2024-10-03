@@ -3,9 +3,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<meta name="description" content="">
+    <meta name="author" content="rshowrabh">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Admin {{ config('app.name', 'Laravel') }}</title>
-	<link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('assets/img/favicon.png') }}">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('assets/imgs/logo/favicon.png') }}">
 	<link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::to('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::to('assets/plugins/fontawesome/css/all.min.css') }}">
@@ -26,7 +28,7 @@
 	<div class="main-wrapper">
 		<div class="header">
 			<div class="header-left">
-				<a href="#" class="logo"> <img src="{{ URL::to('assets/img/hotel_logo.png') }}" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
+				<a href="#" class="logo"> <img src="{{ URL::to('assets/img/hotel_logo.png') }}" width="50" height="70" alt="logo"> <span class="logoclass">ThinkFly</span> </a>
 				<a href="#" class="logo logo-small"> <img src="{{ URL::to('assets/img/hotel_logo.png') }}" alt="Logo" width="30" height="30"> </a>
 			</div>
 			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
@@ -101,13 +103,23 @@
 						<div class="user-header">
 							<div class="avatar avatar-sm"> <img src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" alt="User Image" class="avatar-img rounded-circle"> </div>
 								<div class="user-text">
-									<h6>Soeng Souy</h6>
+									<h6>{{ Auth::user()->name }}</h6>
 									<p class="text-muted mb-0">Administrator</p>
 								</div>
 							</div>
-						<a class="dropdown-item" href="#">My Profile</a> 
+							<x-responsive-nav-link class="dropdown-item" :href="route('profile.edit')">
+								{{ __('Profile') }}
+							</x-responsive-nav-link> 
 						<a class="dropdown-item" href="settings.html">Account Settings</a> 
-						<a class="dropdown-item" href="#">Logout</a>
+						{{-- <a class="dropdown-item" href="#">Logout</a>  --}}
+						<form method="POST" action="{{ route('logout') }}">
+							@csrf	
+							<x-responsive-nav-link class="dropdown-item" :href="route('logout')"
+									onclick="event.preventDefault();
+												this.closest('form').submit();">
+								{{ __('Log Out') }}
+							</x-responsive-nav-link>
+						</form>
 					</div>
 				</li>
 			</ul>
@@ -120,6 +132,7 @@
 		</div>
 		{{-- menu --}}
 		@include('sidebar.menusidebar')
+		
         @yield('content')
 	</div>
 	<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

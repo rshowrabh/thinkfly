@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 use DB;
 
 class BannerController extends Controller
 {
-    protected $table = \App\Models\Item::class;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = DB::table('banners')->get();
-        return response()->json($data);
+        $banner = DB::table('banners')->get();
+        return view('admin.banner',compact('banner'));
     }
 
     /**
@@ -55,7 +55,17 @@ class BannerController extends Controller
      */
     public function update(Request $request, Banner $banner)
     {
-        //
+    if ($request->file('image')) {
+        $imageName = 'banner-man-img.png';
+        $request->image->move(public_path('/assets/imgs/banner-1/'), $imageName);
+         }
+        $data=Banner::findOrFail(1);
+        $data->update([
+        'heading'=>$request->heading,
+        'url' =>  $request->url,
+    ]);
+       Toastr::success('Banner Section Updated','Success');
+        return redirect()->route('banner.index')->with('message', 'Banner Updated');
     }
 
     /**

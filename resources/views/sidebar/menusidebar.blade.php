@@ -4,9 +4,9 @@
             <ul>
             <li class="{{ set_active(['admin']) }}"> <a href="#"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
                 <li class="list-divider"></li>
-                <li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
+                <li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Frontend </span> <span class="menu-arrow"></span></a>
                     <ul class="submenu_class" style="display: none;">
-                        <li><a class="{{ set_active(['form/allbooking']) }}" href="#"> All Booking </a></li>
+                        <li><a class="{{ set_active(['admin/banner']) }}" href={{route('banner.index')}}> Banner </a></li>
                         <li><a class="{{ request()->is('form/booking/edit/*') ? 'active' : '' }}"> Edit Booking </a></li>
                         <li><a class="{{ set_active(['form/booking/add']) }}" href="#"> Add Booking </a></li>
                     </ul>

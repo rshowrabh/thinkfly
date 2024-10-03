@@ -10,7 +10,11 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 ">
                         <div class="banner-home__content p-relative">
-                            <h1 class="title mb-xs-10 wow fadeInLeft animated" data-wow-delay=".4s">{{ $banner[0]->heading}}</h1>
+                            <h1 class="title mb-xs-10 wow fadeInLeft animated" data-wow-delay=".4s">
+                                @if ($banner[0])
+                                {{ $banner[0]->heading}}
+                                @endif                            
+                            </h1>
                             <div class="banner-home__btn__wrapper d-flex flex-wrap mt-40 mt-md-35 mt-sm-30 mt-xs-25">
                                 <a href="about-us.html" class="rr-btn btn-transparent wow fadeInLeft animated" data-wow-delay=".6s">Read More <i class="fa-solid fa-arrow-right"></i></a>
                                 <a href="{{$banner[0]->url}}" class="popup-video zooming banner-video-button" data-effect="mfp-move-from-top vertical-middle">

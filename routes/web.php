@@ -24,7 +24,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 // Admin
 Route::get('/admin', function () {
     return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('admin.index');
 Route::get('/dashboard_old', function () {
     return view('dashboard_old');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,7 +34,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/banner', [BannerController::class, 'index'])->name('banner.index');
+    Route::post('/banner', [BannerController::class, 'update'])->name('banner.update');
 });
 
 require __DIR__.'/auth.php';
