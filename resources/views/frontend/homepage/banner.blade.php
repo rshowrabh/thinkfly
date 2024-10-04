@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="banner-home__all-shape">
                     <div class="left-tower upDown-top">
-                        <img src="assets/imgs/banner-1/banner-left-towor.png" alt="img not found">
+                        <img src="{{ URL::to('assets/imgs/banner-1/'. $banner[0]->image) }}" alt="img not found">
                     </div>
                 </div>
                 <div class="row align-items-center">
@@ -43,13 +43,13 @@
                     <div class="col-md-6 ">
                         <div class="banner-home__shape position-relative wow fadeInLeft animated" data-wow-delay=".9s">
                             <div class="ball-shape upDown">
-                                <img class="img-fluid" src="{{$banner[0]->image}}" alt="img not found">
+                                <img class="img-fluid" src="{{ URL::to('assets/imgs/banner-1/banner-bg-ball-shape.png') }}" alt="img not found">
                             </div>
                             <div class="man-img leftRight">
-                                <img src="assets/imgs/banner-1/banner-man-img.png" alt="img not found">
+                                <img src="{{ URL::to('assets/imgs/banner-1/'. $banner[0]->image) }}" alt="img not found">
                             </div>
                             <div class="right-tower upDown-bottom">
-                                <img src="assets/imgs/banner-1/banner-right-towor.png" alt="img not found">
+                                <img src="{{ URL::to('assets/imgs/banner-1/banner-right-towor.png')}}" alt="img not found">
                             </div>
                         </div>
                     </div>

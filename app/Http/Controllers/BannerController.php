@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
+use File;
 use DB;
 
 class BannerController extends Controller
@@ -55,15 +56,33 @@ class BannerController extends Controller
      */
     public function update(Request $request, Banner $banner)
     {
+    // if ($request->file('image')) {
+    //     $imageName = 'banner-man-img.png';
+    //     $request->image->move(public_path('assets/imgs/banner-1/'), $imageName);
+    //      }
+    //     $data=Banner::findOrFail(1);
+    //     $data->update([
+    //     'heading'=>$request->heading,
+    //     'url' =>  $request->url,
+    // ]);
+
+    $banner = Banner::findOrFail(1);
+    if (File::exists(public_path('assets/imgs/banner-1/'), $banner->image)) {
+        File::delete(public_path('assets/imgs/banner-1/'), $banner->image);
+    }
     if ($request->file('image')) {
-        $imageName = 'banner-man-img.png';
-        $request->image->move(public_path('assets/imgs/banner-1/'), $imageName);
-         }
-        $data=Banner::findOrFail(1);
-        $data->update([
-        'heading'=>$request->heading,
-        'url' =>  $request->url,
+    $filenameWithExt = $request->file('image')->getClientOriginalName();
+    $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME); 
+    $extension =  $request->file('image')->getClientOriginalExtension(); 
+    $filenameToStore = $filename.'-'.time(). '.'. $extension; 
+    $request->image->move(public_path('assets/imgs/banner-1/'), $filenameToStore);
+       $banner->image = $filenameToStore;
+    }
+        $banner->update([
+            'heading'=>$request->heading,
+            'url' =>  $request->url,
     ]);
+
        Toastr::success('Banner Section Updated','Success');
         return redirect()->route('banner.index')->with('message', 'Banner Updated');
     }
