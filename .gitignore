@@ -2,6 +2,7 @@
 /node_modules
 /public/build
 /public/assets/imgs
+/public/assets/img
 /public/hot
 /public/storage
 /storage/*.key
