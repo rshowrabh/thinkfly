@@ -676,6 +676,8 @@
             }).done(function(data) {
                 $('.loading-form').hide();
                 $('.contact-us__form').append('<p class="success-message mt-3 mb-0">Your message has been sent successfully.</p>');
+                window.location.replace('/');
+                
             }).fail(function(data) {
                 $('.loading-form').hide();
                 $('.contact-us__form').append('<p class="error-message mt-3 mb-0">Something went wrong. Please try again later.</p>');

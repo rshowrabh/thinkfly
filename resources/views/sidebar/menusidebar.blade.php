@@ -4,6 +4,7 @@
             <ul>
             <li class="{{ set_active(['admin']) }}"> <a href="#"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
                 <li class="list-divider"></li>
+                <li class="{{ set_active(['admin/appointment']) }}"> <a href="{{route('appointment.index')}}"><i class="fas fa-suitcase"></i> <span>Appointment</span></a> </li>
                 <li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Frontend </span> <span class="menu-arrow"></span></a>
                     <ul class="submenu_class" style="display: none;">
                         <li><a class="{{ set_active(['admin/banner']) }}" href={{route('banner.index')}}> Banner </a></li>

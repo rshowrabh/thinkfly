@@ -69,17 +69,21 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary buttonedit">Update</button>
+                </div>
             </form>
         </div>
     </div>
-    <script>
-        selectImage.onchange = evt => {
-            preview = document.getElementById('preview');
-            preview.style.display = 'block';
-            const [file] = selectImage.files
-            if (file) {
-                preview.src = URL.createObjectURL(file)
-            }
-        }
-      </script>
 @endsection
+@push('script')
+<script>
+    selectImage.onchange = evt => {
+        preview = document.getElementById('preview');
+        preview.style.display = 'block';
+        const [file] = selectImage.files
+        if (file) {
+            preview.src = URL.createObjectURL(file)
+        }
+    }
+</script>
+@endpush
+

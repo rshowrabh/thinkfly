@@ -75,7 +75,7 @@
                 <div class="header__right">
                     <div class="header__action d-flex align-items-center">
                         <div class="header__btn-wrap d-none d-sm-inline-flex">
-                            <a href="contact.html" class="rr-btn">Get An Appointment <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="{{route('frontend.appointment')}}" class="rr-btn">Get An Appointment <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                         <div class="header__hamburger ml-20 d-xl-none">
                             <div class="sidebar__toggle">

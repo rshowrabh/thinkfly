@@ -29,8 +29,39 @@
 
 
 <body>
+<!-- Backtotop start -->
+<div class="backtotop-wrap cursor-pointer">
+    <svg class="backtotop-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+    </svg>
+</div>
+<!-- Backtotop end -->
+
+<!-- Offcanvas area start -->
+@include('frontend.homepage.offcanvas')
+<!-- Offcanvas area start -->
+
+<!-- Header area start -->
+<header>
+    @include('frontend.homepage.header') 
+</header>
+
+<div id="popup-search-box">
+    <div class="box-inner-wrap d-flex align-items-center">
+        <form id="form" action="#" method="get" role="search">
+            <input id="popup-search" type="text" name="s" placeholder="Type keywords here...">
+        </form>
+        <div class="search-close"><i class="fa-sharp fa-regular fa-xmark"></i></div>
+    </div>
+</div>
+<!-- Header area end -->
 
 @yield('content')
+<div id="scroll-percentage"><span id="scroll-percentage-value"></span></div>
+<!-- Footer area start -->
+@include('frontend.homepage.footer')
+
+<!-- Footer area end -->
 
 <!-- JS here -->
 <script src={{ URL::to('assets/js/vendor/jquery-3.6.0.min.js') }}></script>
