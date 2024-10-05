@@ -15,7 +15,7 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banner = DB::table('banners')->get();
+        $banner = DB::table('banners')->get();     
         return view('admin.banner',compact('banner'));
     }
 

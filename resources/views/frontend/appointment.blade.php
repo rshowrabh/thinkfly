@@ -73,10 +73,11 @@
                                 <div class="col-12">
                                     <div class="contact-us__textarea wow fadeInLeft animated" data-wow-delay=".7s">
                                         <span>Message</span>
-                                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Write Message.."></textarea>
+                                        <textarea maxlength="150" name="message" id="message" cols="30" rows="10" placeholder="Write Message"></textarea>
                                         <div class="icon">
                                             <i class="fa-solid fa-envelope"></i>
                                         </div>
+                                        <span>Write maximum 150 characters</span>
                                     </div>
                                 </div>
                                 <div class="col-12">

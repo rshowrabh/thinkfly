@@ -5,6 +5,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Appointment;
 
 
 /** set side bar active dynamic */
@@ -26,7 +27,8 @@ Route::post('/appointment/store', [FrontendController::class, 'store'])->name('f
 
 // Admin
 Route::get('/admin', function () {
-    return view('admin.index');
+    $appointment_count = Appointment::count();
+    return view('admin.index',compact('appointment_count'));
 })->middleware(['auth', 'verified'])->name('admin.index');
 
 Route::get('/dashboard_old', function () {
@@ -43,8 +45,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/banner', [BannerController::class, 'index'])->name('banner.index');
     Route::post('/banner', [BannerController::class, 'update'])->name('banner.update');
     Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
+    Route::get('appointment/data', [AppointmentController::class, 'getAppointmentData'])->name('get-appointment-data');
+    Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('appointment.delete'); /** delere record */
     
 });
-Route::get('admin/appointment/data', [AppointmentController::class, 'getAppointmentData'])->name('get-appointment-data');
+
 
 require __DIR__.'/auth.php';

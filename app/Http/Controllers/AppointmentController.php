@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 use DB;
 
 class AppointmentController extends Controller
@@ -18,6 +19,9 @@ class AppointmentController extends Controller
     }
     public function getAppointmentData(Request $request)
     {
+        $validated = $request->validate([
+            'message' => 'max:150',
+        ]);
         $draw            = $request->get('draw');
         $start           = $request->get("start");
         $rowPerPage      = $request->get("length"); // total number of rows per page
@@ -43,8 +47,8 @@ class AppointmentController extends Controller
             $query->orWhere('message', 'like', '%' . $searchValue . '%');
         })->count();
 
-        if ($columnName == 'name') {
-            $columnName = 'name';
+        if ($columnName == 'created_at') {
+            $columnName = 'created_at';
         }
         $records = $users->orderBy($columnName, $columnSortOrder)
             ->where(function ($query) use ($searchValue) {
@@ -68,10 +72,7 @@ class AppointmentController extends Controller
                             <i class="fas fa-ellipsis-v ellipse_color"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-pencil-alt m-r-5"></i> Edit
-                            </a>
-                            <a class="dropdown-item" href="'.url('users/delete/'.$record->id).'">
+                            <a class="dropdown-item"  href="'.url('admin/appointment/delete/'.$record->id).'" >
                             <i class="fas fa-trash-alt m-r-5"></i> Delete
                         </a>
                         </div>
@@ -144,8 +145,20 @@ class AppointmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Appointment $appointment)
+    public function destroy($id)
     {
-        //
+
+        try {
+
+            Appointment::destroy($id);
+            Toastr::success('Appointment deleted successfully :)','Success');
+            return redirect()->back();
+        
+        } catch(\Exception $e) {
+
+            DB::rollback();
+            Toastr::error('Appointment delete fail :)','Error');
+            return redirect()->back();
+        }
     }
 }

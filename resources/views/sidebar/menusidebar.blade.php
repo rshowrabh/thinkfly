@@ -2,17 +2,16 @@
     <div class="sidebar-inner slimscroll">
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
-            <li class="{{ set_active(['admin']) }}"> <a href="#"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+            <li> <a href="/" target="_blank"><i class="fas fa-home"></i> <span>Home Page</span></a> </li>
+            <li class="{{ set_active(['admin']) }}"> <a href="{{route('admin.index')}}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
                 <li class="list-divider"></li>
                 <li class="{{ set_active(['admin/appointment']) }}"> <a href="{{route('appointment.index')}}"><i class="fas fa-suitcase"></i> <span>Appointment</span></a> </li>
-                <li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Frontend </span> <span class="menu-arrow"></span></a>
+                <li class="submenu"> <a href="#"><i class="fas fa-edit"></i> <span> Frontend </span> <span class="menu-arrow"></span></a>
                     <ul class="submenu_class" style="display: none;">
                         <li><a class="{{ set_active(['admin/banner']) }}" href={{route('banner.index')}}> Banner </a></li>
-                        <li><a class="{{ request()->is('form/booking/edit/*') ? 'active' : '' }}"> Edit Booking </a></li>
-                        <li><a class="{{ set_active(['form/booking/add']) }}" href="#"> Add Booking </a></li>
                     </ul>
                 </li>
-                <li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
+                {{-- <li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
                     <ul class="submenu_class" style="display: none;">
                         <li><a class="{{ set_active(['form/allcustomers/page']) }}" href="#"> All customers </a></li>
                         <li><a class="{{ request()->is('form/customer/edit/*') ? 'active' : '' }}"> Edit Customer </a></li>
@@ -61,7 +60,7 @@
                         <li><a class="{{ set_active(['users/list/page']) }}" href="#">All User</a></li>
                         <li><a href="">User Log Activity </a></li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

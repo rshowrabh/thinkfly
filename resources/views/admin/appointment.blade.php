@@ -84,6 +84,7 @@
             serverSide: true,
             ordering: true,
             searching: true,
+            "order": [[ 0, "desc" ]],
             ajax: {
                 url:"{{ route('get-appointment-data') }}",
             },
