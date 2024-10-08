@@ -663,6 +663,8 @@
         lastNobullet();
     });
 
+    
+
     $('#contact-us__form').submit(function(event) {
         event.preventDefault();
         var form = $(this);
@@ -675,8 +677,10 @@
             data: form.serialize()
             }).done(function(data) {
                 $('.loading-form').hide();
-                $('.contact-us__form').append('<p class="success-message mt-3 mb-0">Your message has been sent successfully.</p>');
-                window.location.replace('/');
+                $('.contact-us__form-wrapper').append('<p class="success-message mt-3 mb-0">Your message has been sent successfully.</p>');
+                $('#contact-us__form').hide('slideUp');
+                // window.scrollTo({ top: 100, behavior: 'smooth' });
+                // window.location.replace('/');
                 
             }).fail(function(data) {
                 $('.loading-form').hide();
