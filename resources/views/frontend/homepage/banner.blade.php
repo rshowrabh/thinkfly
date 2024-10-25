@@ -4,20 +4,24 @@
             <div class="container">
                 <div class="banner-home__all-shape">
                     <div class="left-tower upDown-top">
-                        <img src="{{ URL::to('assets/imgs/banner-1/'. $banner[0]->image) }}" alt="img not found">
+                         <img src="./assets/imgs/banner-1/banner-left-towor.png" alt="img not found">               
                     </div>
                 </div>
                 <div class="row align-items-center">
                     <div class="col-md-6 ">
                         <div class="banner-home__content p-relative">
                             <h1 class="title mb-xs-10 wow fadeInLeft animated" data-wow-delay=".4s">
-                                @if ($banner[0])
-                                {{ $banner[0]->heading}}
-                                @endif                            
+                       
+                                {{ $banner->heading ?? "New Visa is Here"}}
+                                                     
                             </h1>
                             <div class="banner-home__btn__wrapper d-flex flex-wrap mt-40 mt-md-35 mt-sm-30 mt-xs-25">
                                 <a href="about-us.html" class="rr-btn btn-transparent wow fadeInLeft animated" data-wow-delay=".6s">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                                <a href="{{$banner[0]->url}}" class="popup-video zooming banner-video-button" data-effect="mfp-move-from-top vertical-middle">
+                                @if ($banner->url != null)
+                                <a href="{{$banner->url}}" class="popup-video zooming banner-video-button" data-effect="mfp-move-from-top vertical-middle">
+                                @else
+                                <a href="https://www.youtube.com/watch?v=tNDXtCFPFs4" class="popup-video zooming banner-video-button" data-effect="mfp-move-from-top vertical-middle">
+                                @endif
                                     <svg width="26" height="28" viewbox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g filter="url(#filter0_d_836_9)">
                                         <path d="M19.5 10.134C20.1667 10.5189 20.1667 11.4811 19.5 11.866L7.5 18.7942C6.83333 19.1791 6 18.698 6 17.9282L6 4.0718C6 3.302 6.83333 2.82087 7.5 3.20577L19.5 10.134Z" fill="#fff"></path>
@@ -36,7 +40,12 @@
                                         </defs>
                                     </svg>
                                 </a>
-                                <a class="video-text wow fadeInLeft animated" data-wow-delay=".8s" href="{{$banner[0]->url}}">Watch Our Videos</a>
+                                @if ($banner->url != null)
+                                <a class="video-text wow fadeInLeft animated" data-wow-delay=".8s" href="{{$banner->url}}">Watch Our Videos</a>
+                                @else
+                                <a class="video-text wow fadeInLeft animated" data-wow-delay=".8s" href="https://www.youtube.com/watch?v=tNDXtCFPFs4">Watch Our Videos</a>
+                                
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -46,7 +55,11 @@
                                 <img class="img-fluid" src="{{ URL::to('assets/imgs/banner-1/banner-bg-ball-shape.png') }}" alt="img not found">
                             </div>
                             <div class="man-img leftRight">
-                                <img src="{{ URL::to('assets/imgs/banner-1/'. $banner[0]->image) }}" alt="img not found">
+                                @if ($banner->image != null )
+                                <img src="{{ asset('storage/'. $banner->image) }}" alt="img not found">
+                                @else
+                                <img src="./assets/imgs/banner-1/banner-man-img.png" alt="img not found">
+                                @endif
                             </div>
                             <div class="right-tower upDown-bottom">
                                 <img src="{{ URL::to('assets/imgs/banner-1/banner-right-towor.png')}}" alt="img not found">
@@ -58,36 +71,3 @@
         </div>
     </div>
 </section>
-@push('head')
-<script>
-    //     jQuery(document).ready(function($) {
-    //        $.ajaxSetup({
-    //            headers: {
-    //                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-    //            }
-    //        });
-
-    //        $.ajax({
-    //            url: "{{ route('banner.index') }}",
-    //            success: function(response) {
-    //                var len = 0;
-    //                if (response != null) {
-    //                    len = response.length;
-    //                }
-    //                if (len > 0) {
-    //                    // Read data and create <option >
-    //                     console.log(response[0].heading)
-    //                     $('.banner-home__content h1').text(response[0].heading).fadeIn()
-    //                 //    for (var i = 0; i < len; i++) {
-    //                 //        var id = response[i];
-    //                 //        var option = "<option value='" + id + "'>" + id + "</option>";
-    //                 //        $(".int_jq").append(option);
-    //                 //    }
-
-    //                }
-    //            }
-    //        });
-
-    //    });
-</script>
-@endpush

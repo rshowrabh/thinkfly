@@ -1,54 +1,26 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Appointment;
-
-
-/** set side bar active dynamic */
-function set_active($route) {
-    if(is_array($route)) {
-        return in_array(Request::path(), $route) ? 'active' : '';
-    }
-    return Request::path() == $route ? 'active': '';
-}
-
-// Frontend
+use App\Http\Controllers\FrontendController;
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
-Route::get('/appointment', [FrontendController::class, 'appointment'])->name('frontend.appointment');
-Route::post('/appointment/store', [FrontendController::class, 'store'])->name('frontend.appointment.store');
+Route::get('/data', [FrontendController::class, 'data'])->name('frontend.index');
+
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
 
 
+Route::get('clear', function () {
 
+        \Artisan::call('optimize:clear');
 
-// Admin
-Route::get('/admin', function () {
-    $appointment_count = Appointment::count();
-    return view('admin.index',compact('appointment_count'));
-})->middleware(['auth', 'verified'])->name('admin.index');
+        dd("Cache is cleared");
 
-Route::get('/dashboard_old', function () {
-    return view('dashboard_old');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::get('/banner', [BannerController::class, 'index'])->name('banner.index');
-    Route::post('/banner', [BannerController::class, 'update'])->name('banner.update');
-    Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
-    Route::get('appointment/data', [AppointmentController::class, 'getAppointmentData'])->name('get-appointment-data');
-    Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('appointment.delete'); /** delere record */
-    
-});
-
 
 require __DIR__.'/auth.php';

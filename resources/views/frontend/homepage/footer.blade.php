@@ -42,19 +42,24 @@
                     <div class="footer__widget footer__widget-item-1 wow fadeInLeft animated" data-wow-delay=".2s">
                         <span class="footer__widget-item-1-location"><img src="assets/imgs/footer/footer1-bg-location-img.png" alt="img not found"></span>
                         <div class="footer__logo mb-30">
-                            <a href="index.html">
-                                <img src="assets/imgs/logo/footer-logo.png" alt="logo not found">
+                            @if($setting)
+                            <a href="/">
+                                <img src="{{asset('storage/'.$setting->site_logo_dark)}}" alt="logo not found">
                             </a>
+                            @endif
                         </div>
                         <div class="footer__content">
                             <p>Corporate business typically refers to large-scale mansola it enterprises or organizat</p>
                         </div>
 
                         <div class="footer__social mt-20">
-                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a>
-                            <a href="https://vimeo.com/"><i class="fa-brands fa-linkedin"></i></a>
+                            @if($setting)
+                            @foreach (json_decode($setting->social_network)  as $key =>$item)
+                            @if($item != null)
+                            <a target="_blank" href="{{$item}}"><i class="fa-brands fa-{{$key}}"></i></a>
+                            @endif
+                            @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>

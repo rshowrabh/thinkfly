@@ -6,12 +6,21 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Appointment;
 use DB;
+
 class FrontendController extends Controller
 {
     public function index()
     {
-        $banner = DB::table('banners')->get();
-        return view('frontend.index', compact("banner"));
+        $setting = DB::table('general_settings')->find(1);
+        if(!$setting) return redirect()->to('/admin/general-settings-page');
+        $banner = DB::table('banners')->find(1);
+        return view('frontend.index', compact("banner", "setting"));
+    } 
+    public function data()
+    {
+
+        $settings = DB::table('general_settings')->find(1);
+        return response()->json($settings->social_network);
     } 
     public function appointment()
     {

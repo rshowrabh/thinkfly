@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://thinkfly.agency/laravel'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +97,7 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
-    'key' => env('APP_KEY', 'base64:ZndyMGt3eGhpNTdqdGt2dGNqY3NidDZvaGR1N2x3cW0='),
+    'key' => env('APP_KEY'),
 
     'previous_keys' => [
         ...array_filter(

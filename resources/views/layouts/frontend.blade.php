@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ config('app.name', 'Laravel') }} - Immigration and Visa Consulting</title>
+    <title>{{$setting->site_name ?? 'Laravel'}} - {{$setting->site_description ?? ''}}</title>
     <meta name="description" content="">
     <meta name="author" content="rshowrabh">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('assets/imgs/logo/favicon.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('storage/'. $setting->site_favicon)}}">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">

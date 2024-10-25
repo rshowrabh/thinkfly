@@ -1,13 +1,10 @@
 /.phpunit.cache
 /node_modules
-/public/build
-/public/assets/imgs
-/public/assets/img
 /public/hot
 /public/storage
 /storage/*.key
+/storage/pail
 /vendor
-.env
 .env.backup
 .env.production
 .phpactor.json

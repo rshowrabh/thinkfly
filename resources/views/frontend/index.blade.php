@@ -824,7 +824,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="faq__media" data-tilt="">
-                            <img src="assets/imgs/faq/faq-info-img.png" alt="img not found">
+                            <img src="assets/imgs/faq/faq.png" alt="img not found">
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -967,7 +967,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="testimonial__media" data-tilt="">
-                        <img src="assets/imgs/testimonial/testimonial-left-img.png" alt="img not found">
+                        <img src="assets/imgs/testimonial/testimonial-img.png" alt="img not found">
                     </div>
                 </div>
                 <div class="col-lg-7">

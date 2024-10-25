@@ -6,7 +6,9 @@
                     <div class="header__logo">
                         <a href="index.html">
                             <div class="logo">
-                                <img src="assets/imgs/logo/logo.png" alt="logo not found">
+                                @if($setting)
+                                <img src="{{asset('storage/'.$setting->site_logo ?? '')}}" alt="logo not found">
+                                @endif
                             </div>
                         </a>
                     </div>
@@ -75,7 +77,7 @@
                 <div class="header__right">
                     <div class="header__action d-flex align-items-center">
                         <div class="header__btn-wrap d-none d-sm-inline-flex">
-                            <a href="{{route('frontend.appointment')}}" class="rr-btn">Get An Appointment <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="#" class="rr-btn">Get An Appointment <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                         <div class="header__hamburger ml-20 d-xl-none">
                             <div class="sidebar__toggle">
