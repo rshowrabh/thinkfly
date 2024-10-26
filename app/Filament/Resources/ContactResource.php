@@ -19,6 +19,10 @@ class ContactResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
     
+    public static function getNavigationLabel(): string
+    {
+        return __('Appointments');
+    }
 
     public static function form(Form $form): Form
     {

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Models\Appointment;
+use App\Models\Contact;
+use Filament\Notifications\Notification;
 use DB;
 
 class FrontendController extends Controller
@@ -26,18 +27,22 @@ class FrontendController extends Controller
     } 
     public function appointment()
     {
-        $appointment = DB::table('appointments')->get();
+        $appointment = DB::table('contacts')->get();
         return view('frontend.appointment',compact('appointment'));
     }
-    public function store(Request $request)
+    public function storeAppointment(Request $request)
     {
-        $appointment = new Appointment;
-        $appointment->name = $request->name;         
+        $appointment = new Contact;
+        $appointment->name = $request->name;           
         $appointment->email = $request->email;         
         $appointment->phone = $request->phone;         
         $appointment->address = $request->address;         
         $appointment->message = $request->message;
         $appointment->save();
-        Toastr::success('Message Sent successfully :)','Success');
+        Notification::make() 
+        ->title('New Appointment')
+        ->success()
+        ->persistent()
+        ->send(); 
     } 
 }

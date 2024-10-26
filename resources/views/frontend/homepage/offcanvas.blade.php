@@ -16,14 +16,17 @@
                         </button>
                     </div>
                 </div>
-                <div class="mobile-menu fix"></div>
+                <div class="mobile-menu fix"></div> 
                 <div class="offcanvas__social">
                     <h3 class="offcanvas__title mb-20">Subscribe & Follow</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a></li>
-                        <li><a href="https://youtube.com/"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="https://linkedin.com/"><i class="fab fa-linkedin"></i></a></li>
+                        @if($setting)
+                        @foreach (json_decode($setting->social_network)  as $key =>$item)
+                        @if($item != null)
+                        <a target="_blank" href="{{$item}}"><i class="fa-brands fa-{{$key}}"></i></a>
+                        @endif
+                        @endforeach
+                        @endif
                     </ul>
                 </div>
                 <div class="offcanvas__btn d-sm-none">
