@@ -23,6 +23,10 @@ class ContactResource extends Resource
     {
         return __('Appointments');
     }
+    protected function getTableRecordUrlUsing(): ?Closure
+    {
+        return null;
+    }
 
     public static function form(Form $form): Form
     {

@@ -4,7 +4,7 @@
             <div class="header__main">
                 <div class="header__left">
                     <div class="header__logo">
-                        <a href="index.html">
+                        <a href="/">
                             <div class="logo">
                                 @if($setting)
                                 <img src="{{asset('storage/'.$setting->site_logo ?? '')}}" alt="logo not found">
@@ -67,7 +67,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{{route('frontend.appointment')}}">Contact</a>
                                     </li>
                                 </ul>
                             </nav>

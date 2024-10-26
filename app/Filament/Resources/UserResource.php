@@ -26,6 +26,11 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+    protected function getTableRecordUrlUsing(): ?Closure
+    {
+        return null;
+    }
+
     public static function form(Form $form): Form
     {
         return $form
