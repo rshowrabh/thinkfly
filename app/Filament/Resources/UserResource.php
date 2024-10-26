@@ -26,10 +26,6 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected function getTableRecordUrlUsing(): ?Closure
-    {
-        return null;
-    }
 
     public static function form(Form $form): Form
     {
@@ -77,6 +73,7 @@ class UserResource extends Resource
                 ->badge(),
                 TextColumn::make('email')->searchable()->sortable()
             ])
+            ->recordUrl(null)
             ->filters([
                 SelectFilter::make('roles')->relationship('roles', 'name')
             ])

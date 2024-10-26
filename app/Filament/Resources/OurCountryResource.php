@@ -34,10 +34,6 @@ class OurCountryResource extends Resource
     {
         return __('Our Countries Slider');
     }
-    protected function getTableRecordUrlUsing(): ?Closure
-    {
-        return null;
-    }
 
     public static function form(Form $form): Form
     {
@@ -61,6 +57,7 @@ class OurCountryResource extends Resource
                 TextColumn::make('subtext'),
                 // TextColumn::make('content'),
             ])
+            ->recordUrl(null)
             ->filters([
                 //
             ])
