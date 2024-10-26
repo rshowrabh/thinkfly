@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.0",
+        "z3d0x/filament-fabricator": "^2.2",
         "z3d0x/filament-logger": "^0.7.2"
     },
     "require-dev": {

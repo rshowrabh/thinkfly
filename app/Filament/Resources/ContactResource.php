@@ -34,11 +34,11 @@ class ContactResource extends Resource
         return $table
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('email')->searchable()->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('phone')->searchable()->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('subject')->searchable()->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('address')->searchable()->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('message')->searchable()->sortable()
+                \Filament\Tables\Columns\TextColumn::make('email')->searchable()->sortable()->toggleable(),
+                \Filament\Tables\Columns\TextColumn::make('phone')->searchable()->sortable()->toggleable(),
+                \Filament\Tables\Columns\TextColumn::make('subject')->searchable()->sortable()->toggleable(),
+                \Filament\Tables\Columns\TextColumn::make('address')->searchable()->sortable()->toggleable(),
+                \Filament\Tables\Columns\TextColumn::make('message')->searchable()->sortable()->toggleable()
                 ->limit(50)
                 ->tooltip( fn ($record) :string => $record->message ?? '')
                 ,

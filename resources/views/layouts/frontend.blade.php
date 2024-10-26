@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">        
     <title>{{$setting->site_name ?? 'Laravel'}} - {{$setting->site_description ?? ''}}</title>
     <meta name="description" content="">
     <meta name="author" content="rshowrabh">

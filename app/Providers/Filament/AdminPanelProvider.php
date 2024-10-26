@@ -75,6 +75,7 @@ class AdminPanelProvider extends PanelProvider
                 ->setNavigationGroup('Settings')
                 ->setTitle('General Settings')
                 ->setNavigationLabel('General Settings'),
+                \Z3d0X\FilamentFabricator\FilamentFabricatorPlugin::make(),
             ])
             ->resources([
                 config('filament-logger.activity_resource')

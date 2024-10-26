@@ -13,8 +13,10 @@ class FrontendController extends Controller
     {
         $setting = DB::table('general_settings')->find(1);
         if(!$setting) return redirect()->to('/admin/general-settings-page');
+        $our_countries = DB::table('our_countries')->get();
         $banner = DB::table('banners')->find(1);
-        return view('frontend.index', compact("banner", "setting"));
+
+        return view('frontend.index', compact("banner", "our_countries"));
     } 
     public function data()
     {
