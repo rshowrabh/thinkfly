@@ -7,6 +7,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('/data', [FrontendController::class, 'data'])->name('frontend.index');
 Route::post('/store-appointment', [FrontendController::class, 'storeAppointment'])->name('frontend.appointment.store');
 Route::get('/get-appointment', [FrontendController::class, 'appointment'])->name('frontend.appointment');
+Route::get('/visa/{slug}', [FrontendController::class, 'visa'])->name('frontend.visa');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

@@ -39,8 +39,9 @@
                                     <li class="has-dropdown">
                                         <a href="service.html">Visa</a>
                                         <ul class="submenu">
-                                            <li><a href="visa.html">Visa</a></li>
-                                            <li><a href="visa-details.html">Visa Details</a></li>
+                                            @foreach ($visas as $visa)
+                                            <li><a href="{{route('frontend.visa', $visa->slug)}}">{{$visa->category}}</a></li>
+                                            @endforeach                                          
                                         </ul>
                                     </li>
                                     <li class="has-dropdown">

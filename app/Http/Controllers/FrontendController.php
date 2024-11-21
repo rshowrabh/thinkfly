@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Contact;
+use App\Models\Visa;
 use Filament\Notifications\Notification;
 use DB;
 
@@ -16,8 +17,8 @@ class FrontendController extends Controller
         if(!$setting) return redirect()->to('/admin/general-settings-page');
         $our_countries = DB::table('our_countries')->get();
         $banner = DB::table('banners')->find(1);
-
-        return view('frontend.index', compact("banner", "our_countries"));
+        $visas = Visa::latest()->take(4)->get();
+        return view('frontend.index', compact("banner", "our_countries", "visas"));
     } 
     public function data()
     {
@@ -45,4 +46,12 @@ class FrontendController extends Controller
         ->persistent()
         ->send(); 
     } 
+
+    public function visa(string $slug)
+    {
+        $visas = Visa::all();
+        $visa = Visa::where('slug', $slug)->first();
+        return view('frontend.visa',compact('visas', 'visa'));
+    } 
+
 }
