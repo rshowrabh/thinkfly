@@ -128,7 +128,7 @@
             <div class="container">
                 <div class="footer__bottom">
                     <div class="footer__copyright wow fadeInLeft animated" data-wow-delay=".6s">
-                        <p>© <a href="http://rrdevs.net">RRDevs</a> 2024 | All Rights Reserved</p>
+                        <p>© <a href="http://webversebd.com">Webverse</a> 2024 | All Rights Reserved</p>
                     </div>
 
                     <div class="footer__copyright-menu">

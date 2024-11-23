@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('heading')->nullable();
-            $table->string('url')->nullable();
-            $table->string('image')->nullable();
+            $table->string('banner_heading')->nullable();
+            $table->string('banner_url')->nullable();
+            $table->string('banner_image')->nullable();
+            $table->string('banner_image_offer')->nullable();
+            $table->string('banner_image_review')->nullable();
             $table->boolean('isActive')->default(1);
             $table->timestamps();
         });

@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ])->assignRole('super_admin');
 
         DB::table('banners')->insert([
-            'heading' => 'New Visa is here'
+            'banner_heading' => 'New Visa is here'
         ]);
 
     }

@@ -12,13 +12,13 @@
                         <div class="banner-home__content p-relative">
                             <h1 class="title mb-xs-10 wow fadeInLeft animated" data-wow-delay=".4s">
                        
-                                {{ $banner->heading ?? "New Visa is Here"}}
+                                {{ $banner->banner_heading ?? "New Visa is Here"}}
                                                      
                             </h1>
                             <div class="banner-home__btn__wrapper d-flex flex-wrap mt-40 mt-md-35 mt-sm-30 mt-xs-25">
                                 <a href="about-us.html" class="rr-btn btn-transparent wow fadeInLeft animated" data-wow-delay=".6s">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                                @if ($banner->url != null)
-                                <a href="{{$banner->url}}" class="popup-video zooming banner-video-button" data-effect="mfp-move-from-top vertical-middle">
+                                @if ($banner->banner_url != null)
+                                <a href="{{$banner->banner_url}}" class="popup-video zooming banner-video-button" data-effect="mfp-move-from-top vertical-middle">
                                 @else
                                 <a href="https://www.youtube.com/watch?v=tNDXtCFPFs4" class="popup-video zooming banner-video-button" data-effect="mfp-move-from-top vertical-middle">
                                 @endif
@@ -40,8 +40,8 @@
                                         </defs>
                                     </svg>
                                 </a>
-                                @if ($banner->url != null)
-                                <a class="video-text wow fadeInLeft animated" data-wow-delay=".8s" href="{{$banner->url}}">Watch Our Videos</a>
+                                @if ($banner->banner_url != null)
+                                <a class="video-text wow fadeInLeft animated" data-wow-delay=".8s" href="{{$banner->banner_url}}">Watch Our Videos</a>
                                 @else
                                 <a class="video-text wow fadeInLeft animated" data-wow-delay=".8s" href="https://www.youtube.com/watch?v=tNDXtCFPFs4">Watch Our Videos</a>
                                 
@@ -55,8 +55,8 @@
                                 <img class="img-fluid" src="{{ URL::to('assets/imgs/banner-1/banner-bg-ball-shape.png') }}" alt="img not found">
                             </div>
                             <div class="man-img leftRight">
-                                @if ($banner->image != null )
-                                <img src="{{ asset('storage/'. $banner->image) }}" alt="img not found">
+                                @if ($banner->banner_image != null )
+                                <img src="{{ asset('storage/'. $banner->banner_image) }}" alt="img not found">
                                 @else
                                 <img src="./assets/imgs/banner-1/banner-man-img.png" alt="img not found">
                                 @endif

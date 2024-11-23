@@ -19,15 +19,10 @@
                             <nav id="mobile-menu">
                                 <ul>
                                     <li class="has-dropdown active">
-                                        <a href="javascript:void(0)">Home</a>
-                                        <ul class="submenu">
-                                            <li><a href="index.html">Home 1</a></li>
-                                            <li><a href="index-2.html">Home 2</a></li>
-                                            <li><a href="index-3.html">Home 3</a></li>
-                                        </ul>
+                                        <a href="/">Home</a>
                                     </li>
                                     <li>
-                                        <a href="about-us.html">About Us</a>
+                                        <a href="{{route('frontend.aboutus')}}">About Us</a>
                                     </li>
                                     <li class="has-dropdown">
                                         <a href="story.html">Story</a>
@@ -51,7 +46,7 @@
                                             <li><a href="blog-details.html">blog details</a></li>
                                         </ul>
                                     </li>
-                                    <li class="has-dropdown ">
+                                    {{-- <li class="has-dropdown ">
                                         <a href="javascript:void(0)">Page</a>
                                         <ul class="submenu">
                                             <li><a href="visa-offers.html">visa-offers</a></li>
@@ -66,7 +61,7 @@
                                             <li><a href="faq.html">faq</a></li>
                                             <li><a href="404.html">404 Page</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="{{route('frontend.appointment')}}">Contact</a>
                                     </li>

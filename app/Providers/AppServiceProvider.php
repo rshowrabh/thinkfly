@@ -23,8 +23,9 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*',function($view){
 
-            $setting = DB::table('general_settings')->find(1); 
-            $view->with('setting', $setting );
+            $setting = DB::table('general_settings')->find(1);
+            $visas = DB::table('visas')->get();
+            $view->with(compact('setting', 'visas'));
            
         });
         Schema::defaultStringLength(191);

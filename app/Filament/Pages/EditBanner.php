@@ -27,7 +27,7 @@ class EditBanner extends Page implements HasForms
     }
     public static function getNavigationLabel(): string
     {
-        return __('Banner');
+        return __('Homepage');
     }
 
     public function mount(Banner $banner): void
@@ -39,11 +39,11 @@ class EditBanner extends Page implements HasForms
     {
         return $form
             ->schema([
-                TextInput::make('heading'),
-                TextInput::make('url')->url(),
-                FileUpload::make('image')
-                ->image()
-                ->imageEditor(),
+                TextInput::make('banner_heading'),
+                TextInput::make('banner_url')->url(),
+                FileUpload::make('banner_image')->image()->imageEditor(),
+                FileUpload::make('banner_image_offer')->image()->imageEditor(),
+                FileUpload::make('banner_image_review')->image()->imageEditor(),
             ])
             ->statePath('data');
     } 

@@ -10,8 +10,10 @@ class Banner extends Model
     use HasFactory;
 
     protected $fillable = [
-        'heading',
-        'url',
-        'image',
+        'banner_heading',
+        'banner_url',
+        'banner_image',
+        'banner_image_offer',
+        'banner_image_review',
     ];
 }
