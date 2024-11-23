@@ -8,6 +8,7 @@ Route::get('/data', [FrontendController::class, 'data'])->name('frontend.index')
 Route::post('/store-appointment', [FrontendController::class, 'storeAppointment'])->name('frontend.appointment.store');
 Route::get('/get-appointment', [FrontendController::class, 'appointment'])->name('frontend.appointment');
 Route::get('/visa/{slug}', [FrontendController::class, 'visa'])->name('frontend.visa');
+Route::get('/blog/{slug}', [FrontendController::class, 'blog'])->name('frontend.blog');
 Route::get('/about-us', [FrontendController::class, 'aboutus'])->name('frontend.aboutus');
 
 Route::view('dashboard', 'dashboard')

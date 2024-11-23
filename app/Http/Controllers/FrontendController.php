@@ -7,6 +7,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Contact;
 use App\Models\Visa;
 use App\Models\Brand;
+use App\Models\Blog;
 use Filament\Notifications\Notification;
 use DB;
 
@@ -20,7 +21,8 @@ class FrontendController extends Controller
         $banner = DB::table('banners')->find(1);
         $visas = Visa::latest()->take(4)->get();
         $brands = Brand::all();
-        return view('frontend.index', compact("banner", "our_countries", "visas", "brands"));
+        $blogs = Blog::latest()->get();
+        return view('frontend.index', compact("banner", "our_countries", "visas", "brands","blogs"));
     } 
     public function data()
     {
@@ -51,9 +53,13 @@ class FrontendController extends Controller
 
     public function visa(string $slug)
     {
-        $visas = Visa::all();
         $visa = Visa::where('slug', $slug)->first();
-        return view('frontend.visa',compact('visas', 'visa'));
+        return view('frontend.visa',compact('visa'));
+    } 
+    public function blog(string $slug)
+    {
+        $blog = Blog::where('slug', $slug)->first();
+        return view('frontend.blog',compact('blog'));
     } 
     public function aboutus()
     {
